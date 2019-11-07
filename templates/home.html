@@ -1,0 +1,109 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block content %}
+<div class="row container-fluid justify-content-center" >
+
+  <h1 class="display-4 text-dark" style="font-size:1.8rem;margin-top:15px;">PORTOFOLIO</h1>
+
+</div>
+<div class="row container-fluid "  >
+    {% for t in x%}
+    <div class="col-sm-4 col-md-4">
+<div class="card-deck" style="margin-top:20px;">
+  <div class="card">
+    <a href="{% url 'portofolio_detail' t.pk %}">
+    <img  src="{{ t.image.url }}" class="card-img-top" alt="..." height="200px" width="200px" style="">
+    </a>
+    <div class="card-body">
+      <h5 class="card-title" >{{t.title}}</h5>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted"> updated : {{ t.date}}</small>
+    </div>
+  </div>
+</div>
+      </div>
+  {% endfor %}
+
+</div>
+<div class="row container-fluid justify-content-center">
+
+     <button type="button"  style="margin-top:10px;font-size:0.8rem;" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="MORE ON PORTOFOLIO" onclick="window.location.href = 'portofolio';">
+ FIND OUT MORE</button>
+
+</div>
+
+<div class="row  container-fluid justify-content-center" >
+
+ <h1 class="display-4" style="font-size:1.8rem;margin-top:15px;">TEAMS</h1>
+
+</div>
+{% for i in x %}
+<!--<div class="row">-->
+<!--    <div class="col "></div>-->
+<!--    <div>-->
+<!--    <p class="lead">  {{i.title}}</p>-->
+<!--        <p class="lead"> SUPERVISOR</p>-->
+<!--        <img class="img-fluid rounded-circle" src="{{i.supervisor.picture.url}}" height="150px", width="150px">-->
+<!--       <p class="lead">  NAME:{{i.supervisor.name}}</p>-->
+<!--        </div>-->
+<!--    <div class="col"></div>-->
+<!--</div>-->
+<div class="row" style="margin-top:25px;">
+{% for student in i.students.all%}
+    <div class="col ">
+<img class=" rounded-circle " src="{{student.photo.url}}" height="100px" width="100px" style="margin-left:120px;">
+    <p class="lead" > <a style="text-decoration:none;margin-left:120px;" href="{% url 'student_detail' student.pk %}">{{student}}</a></p>
+        </div>
+{%endfor%}
+</div>
+<hr class="my-4 container">
+{% endfor %}
+<div class="row  container-fluid justify-content-center">
+<button type="button" style="margin-top:10px;font-size:0.8rem;" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="MORE ON TEAM" onclick="window.location.href = 'team';">
+ VIEW ALL TEAMS</button>
+</div>
+<div class="row  container-fluid justify-content-center" >
+ <h1 class="display-4 " style="font-size:1.8rem;margin-top:15px;">ABOUT </h1>
+</div>
+<div class="row  container-fluid " >
+  <div class="col">
+    <h1  style="font-size:1.5rem;"> MISSION </h1>
+    <p>To support the development of Rwanda by discovering and advancing knowledge,<br>
+    committed to the highest standards of academic excellence......</p>
+  </div>
+  <div class="col">
+    <h1 style="font-size:1.5rem;">VISION</h1>
+    <p>To be a leading University that develops highly enterprising graduates prepared and<br>
+    dedicated to building a more just and sustainable society locally.........</p>
+  </div>
+  <div class="col">
+    <h1  style="font-size:1.5rem;">OBJECTIVES</h1>
+    <ul>
+      <li>
+        Develop interdisciplinary, problem-based academic programmes aligned with Rwanda’s development needs.
+      </li>
+          <li>
+        Integrate IT-based resources from around the world....
+    </li>
+    </ul>
+  </div>
+</div>
+<div class="row  container-fluid justify-content-center" >
+     <button type="button" style="margin-top:10px;font-size:0.8rem;" class="btn btn-primary" data-toggle="tooltip" data-placement="bottom" title="MORE ON ABOUT US" onclick="window.location.href = 'aboutus';">
+ FIND OUT MORE</button>
+
+</div>
+
+<div class="row  container-fluid justify-content-center" >
+
+ <h1 class="display-4 " style="font-size:1.8rem;margin-top:15px;"> CONTACT </h1>
+</div>
+<div class="row  container-fluid justify-content-center" >
+ <img class="img-fluid" src="{% static 'img/test.png' %}" >
+</div>
+<div class="row  container-fluid justify-content-center" >
+     <button type="button" style="margin-top:10px;" class="btn btn-primary" style="margin-top:15px;background:#006991;" data-toggle="tooltip" data-placement="bottom" title="MORE ON CONTACT US" onclick="window.location.href = 'contactus';">
+ WRITE YOUR SUGGESTION HERE</button>
+</div>
+{% endblock %}

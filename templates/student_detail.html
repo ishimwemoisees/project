@@ -1,0 +1,22 @@
+{%extends 'base.html'%}
+{% block content%}
+<div class="row justify-content-center">
+<img  class="img-fluid rounded-circle" src="{{projet.photo.url}}" style="height:350px;width:350px;">
+    </div>
+<div class="row " >
+    <div class="col">
+   <p class="lead"> <b>Name:</b>{{projet.name}}</p>
+        <p class="lead"> <b>Email:</b>             {{projet.email}}<br></p>
+        <p class="lead"><b>Department: </b>   {{projet.department}}<br></p>
+        <p class="lead"> <b>Technology: </b>  {{projet.technologies}}<br></p>
+        <p class="lead"> <b>Telephone: </b>   {{projet.telephone}}<br></p>
+        <p class="lead"><b>Reg_numb: </b>     {{projet.reg_numb}}<br></p>
+
+    </div>
+    <div class="col">
+        <h1 class="display-4">BIOGRAPHY</h1>
+       {{projet.biography}}
+    </div>
+
+    </div>
+{% endblock%}

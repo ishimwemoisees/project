@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="row justify-content-center">
+ <h1 class="display-4" style="font-size:1.8rem;"> <u>COORDINATOR</u></h1>
+    </div>
+<div class="row justify-content-center" id="coro"style="margin-top:25px;" >
+{%for co in cor %}
+    <div class="row">
+    <div class="col">
+<img class="rounded-circle" src="{{co.picture.url}}" height="150px", width="150px">
+        <p class="lead"><b>NAME:</b><a style="text-decoration:none;" href="{% url 'supervisor_detail' co.pk %}">{{co.name}}</a></p>
+         <p class="lead"><b>EMAIL:</b>{{co.email}}</p>
+         <p class="lead"><b>TELEPHONE:</b>{{co.telephone}}</p>
+         <p class="lead"><b>SPECIALITY:</b>{{co.speciality}}</p>
+        </div>
+        </div>
+    {%endfor%}
+</div>
+<div class="row justify-content-center" id="sup">
+ <h1 class="display-4" style="font-size:1.8rem;"> <u>SUPERVISORS</u></h1>
+    </div>
+<div class="row " style="margin-top:25px;">
+{% for a in teams %}
+    <div class="col">
+        <img class="rounded-circle" src="{{a.picture.url}}" height="150px", width="150px">
+      <p class="lead" style="font-size:1.1rem;"> <b> NAME:</b> <a style="text-decoration:none;" href="{% url 'supervisor_detail' a.pk %}">{{a.name}}</a></p>
+        <p class="lead" style="font-size:1.1rem;"> <b> DEPARTEMENT:</b>{{a.departements}}</p>
+
+</div>
+{% endfor %}
+</div>
+
+<hr class="my-4">
+<div class="row justify-content-center" id="stu">
+ <h3 class="display-4" style="margin-top:5px;font-size:1.8rem;"> <u>STUDENTS</u></h3>
+    </div>
+{% for i in tea %}
+<div class="row" style="margin-top:25px;">
+
+{% for student in i.students.all%}
+    <div class="col">
+<img class="rounded-circle" src="{{student.photo.url}}" height="100px" width="100px" style="margin-left:auto;">
+        <p class="lead" > <a style="text-decoration:none;" href="{% url 'student_detail' student.pk %}">{{student}}</a></p>
+    </div>
+{%endfor%}
+</div>
+<hr class="container my-4">
+{% endfor %}
+{% endblock %}

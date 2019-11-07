@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+{% block content%}
+<div class="container ">
+    <div class="row justify-content-center">
+<h1 class="display-4" style="font-size:1.8rem;"> {{project.title}}</h1>
+    </div>
+    <div class="row justify-content-center">
+
+<img class="img-fluid" src="{{project.image.url}}" style="image-align:center;" width="400px" height="400px" style="">
+        </div>
+<p><h2 class="display-4" align="middle" style="font-size:1.6rem;"> DESCRIPTION</h2> {{project.description}}</p>
+    <p class="lead" style="font-size:1.2rem"> <b>TECHNOLOGY:</b> {{project.technology}}</p>
+    <p class="lead" style="font-size:1.2rem"> <b>DONE BY:</b>
+    {% for student in project.students.all %}
+    <a style=" font-size:100%;text-decoration:none;"href="{% url 'student_detail' student.pk %}"> {{ student}}     / </a>
+    {% endfor %}
+   </p>
+
+        <p class="lead" style="font-size:1.2rem">
+            <b>SUPERVISED BY:</b>
+
+    <a style=" font-size: 100%;text-decoration:none;" href="{% url 'supervisor_detail' project.supervisor.pk %}"> {{ project.supervisor }} </a>
+        </p>
+<p class="lead" style="font-size:1.2rem">
+    <b> Visit Project here:</b>
+  <a style="text-decoration:none;" href="{{project.link}}" target="_blank">{{project.link}}</a>
+</p>
+
+</div>
+{%endblock%}

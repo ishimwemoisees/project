@@ -1,0 +1,11 @@
+{% extends 'base.html'%}
+{%block content %}
+<div class="row justify-content-center">
+<img class="img-fluid rounded-circle" src="{{proje.picture.url}}" style="height:350px;width:350px;">
+</div>
+
+<p class="lead"><b>NAME: </b> {{proje.name}}<br></p>
+<p class="lead"><b>EMAIL:</b>{{proje.email}}<br></p>
+<p class="lead"><b>TELEPHONE:</b>{{proje.telephone}}<br></p>
+<p class="lead"><b>SPECIALITY:</b>{{proje.speciality}}</p>
+{% endblock %}

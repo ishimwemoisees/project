@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+  <div class="row">
+    {% for c in pro%}
+    <div class="col-sm-4 col-md-4">
+<div class="card-deck" style="margin-top:20px;">
+  <div class="card">
+    <a href="{% url 'portofolio_detail' c.pk %}">
+    <img  src="{{ c.image.url }}" class="card-img-top img-fluid " alt="..." height="200px" width="200px" style="">
+    </a>
+    <div class="card-body">
+      <h5 class="card-title" >{{c.title}}</h5>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted"> updated : {{ c.date}}</small>
+    </div>
+  </div>
+</div>
+      </div>
+  {% endfor %}
+
+</div>
+
+{% endblock %}
