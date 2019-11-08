@@ -26,7 +26,7 @@ SECRET_KEY = '^ojay@d71357p6$-&5*s02s%)j+pb*3%^d(up0n+maf!n_^pdw'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['innovate.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['ictinnovation.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -131,7 +131,6 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
 os.path.join(BASE_DIR, 'static'),
 ]
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
